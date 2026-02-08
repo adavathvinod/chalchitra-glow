@@ -7,7 +7,7 @@ const About = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="section-padding gradient-dark" ref={ref}>
+    <section id="about" className="section-padding bg-background" ref={ref}>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -15,12 +15,15 @@ const About = () => {
           transition={{ duration: 0.7 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary text-glow mb-4 text-center">
-            About Chalchitra Advertising
-          </h2>
-          <div className="w-24 h-1 gradient-primary mx-auto mb-10 rounded-full" />
+          <div className="text-center mb-12">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Who We Are</span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4">
+              About Chalchitra Advertising
+            </h2>
+            <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          </div>
 
-          <div className="glass rounded-2xl p-8 sm:p-12 box-glow space-y-6 text-foreground/80 leading-relaxed text-lg">
+          <div className="bg-card rounded-2xl p-8 sm:p-12 card-shadow-lg border border-border space-y-6 text-muted-foreground leading-relaxed text-lg">
             <p>
               <span className="text-primary font-semibold">Chalchitra Advertising</span> is India's first moving outdoor LED advertising network, revolutionizing how brands connect with their audience. We operate a fleet of next-generation LED-equipped e-rickshaws that traverse 40+ high-footfall routes across major Indian cities.
             </p>

@@ -34,7 +34,7 @@ const Services = () => {
   const inView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section id="services" className="section-padding" ref={ref}>
+    <section id="services" className="section-padding bg-muted/50" ref={ref}>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,10 +42,11 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary text-glow mb-4">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">What We Offer</span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4">
             Our Services
           </h2>
-          <div className="w-24 h-1 gradient-primary mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -55,7 +56,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="glass rounded-xl overflow-hidden group hover:box-glow-strong transition-all duration-300 cursor-pointer"
+              className="bg-background rounded-xl overflow-hidden group card-shadow hover:card-shadow-lg transition-all duration-300 border border-border"
             >
               <div className="aspect-square overflow-hidden">
                 <img
@@ -66,7 +67,7 @@ const Services = () => {
                 />
               </div>
               <div className="p-4">
-                <h3 className="font-display text-xs sm:text-sm font-semibold text-primary tracking-wider uppercase">
+                <h3 className="font-display text-sm font-semibold text-foreground">
                   {service.name}
                 </h3>
                 <p className="text-xs text-muted-foreground mt-1">{service.desc}</p>

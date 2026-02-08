@@ -27,12 +27,12 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-strong shadow-lg shadow-primary/5" : "bg-transparent"
+        scrolled ? "bg-background shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <a href="#home" className="flex items-center gap-2">
-          <img src={logo} alt="Chalchitra Advertising" className="h-10 w-auto" />
+          <img src={logo} alt="Chalchitra Advertising" className="h-12 w-auto" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -40,14 +40,16 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors font-display tracking-wider uppercase"
+              className={`text-sm font-medium transition-colors ${
+                scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+              }`}
             >
               {link.label}
             </a>
           ))}
           <a
             href="#booking"
-            className="gradient-primary text-primary-foreground font-display text-xs tracking-wider uppercase px-5 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            className="gradient-primary text-primary-foreground text-sm px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
           >
             Book Campaign
           </a>
@@ -55,7 +57,7 @@ const Header = () => {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
+          className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -67,7 +69,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-border/50"
+            className="md:hidden bg-background border-t shadow-lg"
           >
             <nav className="flex flex-col p-4 gap-4">
               {navLinks.map((link) => (
@@ -75,7 +77,7 @@ const Header = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm font-display tracking-wider uppercase text-foreground/80 hover:text-primary transition-colors"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
                 >
                   {link.label}
                 </a>
@@ -83,7 +85,7 @@ const Header = () => {
               <a
                 href="#booking"
                 onClick={() => setMobileOpen(false)}
-                className="gradient-primary text-primary-foreground font-display text-xs tracking-wider uppercase px-5 py-2.5 rounded-lg font-semibold text-center"
+                className="gradient-primary text-primary-foreground text-sm px-6 py-2.5 rounded-full font-semibold text-center"
               >
                 Book Campaign
               </a>
