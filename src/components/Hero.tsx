@@ -48,11 +48,11 @@ const AnimatedCounter = ({ value, label }: { value: string; label: string }) => 
   }, [numericPart]);
 
   return (
-    <div className="text-center">
-      <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary text-glow-strong">
+    <div className="text-center px-4 sm:px-8">
+      <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary text-glow">
         {isNaN(numericPart) ? value : `${count}${suffix}`}
       </div>
-      <div className="text-xs sm:text-sm text-foreground/60 mt-1 tracking-wider uppercase font-display">
+      <div className="text-xs sm:text-sm text-white/70 mt-2 uppercase tracking-wider">
         {label}
       </div>
     </div>
@@ -72,7 +72,7 @@ const Hero = () => {
   }, [next]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden gradient-hero">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -87,8 +87,7 @@ const Hero = () => {
             alt={slides[current].tagline}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         </motion.div>
       </AnimatePresence>
 
@@ -102,10 +101,10 @@ const Hero = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-glow-strong text-primary mb-4 leading-tight">
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary text-glow mb-6 leading-tight">
                 {slides[current].tagline}
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 mb-8 font-light">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10">
                 {slides[current].subtitle}
               </p>
             </motion.div>
@@ -115,17 +114,17 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-4 mb-16"
           >
             <a
               href="#booking"
-              className="gradient-primary text-primary-foreground font-display text-sm tracking-wider uppercase px-8 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-all box-glow-strong"
+              className="gradient-primary text-primary-foreground font-semibold text-sm px-8 py-4 rounded-full hover:opacity-90 transition-all shadow-xl"
             >
               Book Your Campaign
             </a>
             <a
               href="#contact"
-              className="neon-border text-primary font-display text-sm tracking-wider uppercase px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/10 transition-all"
+              className="bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-white/20 transition-all"
             >
               Get Free Consultation
             </a>
@@ -133,7 +132,7 @@ const Hero = () => {
               href="https://wa.me/919876543210"
               target="_blank"
               rel="noopener noreferrer"
-              className="neon-border text-primary font-display text-sm tracking-wider uppercase px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/10 transition-all"
+              className="bg-[#25D366] text-white font-semibold text-sm px-8 py-4 rounded-full hover:opacity-90 transition-all shadow-lg"
             >
               Chat on WhatsApp
             </a>
@@ -144,9 +143,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="glass rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto box-glow"
+          className="bg-black/40 backdrop-blur-xl rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto border border-white/10"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 divide-x divide-white/10">
             {stats.map((stat) => (
               <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
             ))}
@@ -160,8 +159,8 @@ const Hero = () => {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              i === current ? "bg-primary box-glow-strong w-8" : "bg-foreground/30"
+            className={`h-2 rounded-full transition-all ${
+              i === current ? "bg-primary w-8" : "bg-white/40 w-2"
             }`}
           />
         ))}
